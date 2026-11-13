@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy policy | Labsoft GD</title>
+<meta name="description" content="How Labsoft GD by PathCare Solutions uses Google Drive and handles laboratory data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --haem:#2B1F5C;      /* haematoxylin: ink, headings */
+  --haem-2:#4B3A9A;
+  --eosin:#D93D74;     /* eosin: the one accent */
+  --eosin-wash:#FCE6EE;
+  --slide:#FAF8FD;     /* page */
+  --glass:#FFFFFF;
+  --text:#3F3A57;
+  --muted:#6E6889;
+  --rule:#E4DEF0;
+  --radius-lg:22px; --radius-sm:8px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--slide);color:var(--text);font:400 17px/1.6 "Atkinson Hyperlegible",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;color:var(--haem);margin:0;letter-spacing:-.01em;line-height:1.15}
+a{color:var(--haem-2)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--eosin);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+
+/* ---------- top bar */
+.top{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+.mark{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--haem)}
+.mark svg{width:38px;height:38px}
+.mark b{font:800 21px/1 "Bricolage Grotesque",sans-serif;letter-spacing:-.02em}
+.mark span{display:block;font-size:12.5px;color:var(--muted);margin-top:3px;font-weight:400}
+.top nav{display:flex;gap:26px;font-size:15.5px}
+.top nav a{text-decoration:none;color:var(--text)}
+.top nav a:hover{color:var(--eosin)}
+
+/* ---------- hero */
+.hero{display:grid;grid-template-columns:1.02fr 1fr;gap:56px;align-items:center;padding:46px 0 96px}
+.hero h1{font-size:clamp(40px,5.4vw,66px);line-height:1.02;font-weight:800;font-variation-settings:"opsz" 96;max-width:11ch}
+.hero p.lead{font-size:19.5px;max-width:34em;margin:26px 0 34px;color:var(--text)}
+.cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;font:700 16px/1 "Atkinson Hyperlegible",sans-serif;text-decoration:none;transition:transform .15s,box-shadow .15s}
+.btn.primary{background:var(--haem);color:#fff;box-shadow:0 10px 26px -10px rgba(43,31,92,.7)}
+.btn.primary:hover{transform:translateY(-2px)}
+.btn.ghost{color:var(--haem);border:1.5px solid var(--rule);background:#fff}
+.btn.ghost:hover{border-color:var(--haem-2)}
+.made{margin-top:30px;font-size:14.5px;color:var(--muted)}
+
+/* stage: printed report + phone */
+.stage{position:relative;height:540px}
+.sheet{position:absolute;left:0;top:10px;width:410px;background:#fff;border-radius:6px;padding:26px 26px 30px;
+  box-shadow:0 1px 0 var(--rule),0 30px 60px -28px rgba(43,31,92,.35);transform:rotate(-2.2deg);font-size:11px;line-height:1.35;color:#2a2640}
+.sheet .lh{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid var(--haem);padding-bottom:10px}
+.sheet .lh b{font:800 16px/1.1 "Bricolage Grotesque",sans-serif;color:var(--haem)}
+.sheet .lh small{display:block;color:var(--muted);font-size:9.5px;margin-top:3px}
+.sheet .pt{display:grid;grid-template-columns:1fr 1fr 74px;gap:4px 14px;margin:12px 0 14px;font-size:10px}
+.sheet .pt i{font-style:normal;color:var(--muted)}
+.qr{grid-row:1/span 4;grid-column:3;position:relative;width:74px;height:74px}
+.qr svg{width:100%;height:100%;display:block}
+.qr .beam{position:absolute;left:-6px;right:-6px;height:3px;top:0;background:var(--eosin);border-radius:3px;box-shadow:0 0 14px 3px rgba(217,61,116,.55);opacity:0}
+.sheet h4{margin:4px 0 6px;font:700 11px/1 "Bricolage Grotesque",sans-serif;color:var(--haem);text-align:center;letter-spacing:.02em}
+.sheet table{width:100%;border-collapse:collapse;font-size:10px}
+.sheet th{text-align:left;color:var(--muted);font-weight:700;border-bottom:1px solid var(--rule);padding:4px 0}
+.sheet td{padding:3.6px 0;border-bottom:1px dashed #efeaf6}
+.sheet td.v{font-weight:700}
+.sheet td.hi{color:var(--eosin)}
+.sheet .sig{display:flex;justify-content:flex-end;margin-top:16px;font-size:9.5px;text-align:center}
+.sheet .sig b{display:block;font-size:10.5px;color:var(--haem)}
+
+.phone{position:absolute;right:-8px;bottom:-34px;width:214px;height:420px;border-radius:38px;background:var(--haem);padding:11px;
+  box-shadow:0 40px 70px -30px rgba(43,31,92,.6)}
+.screen{width:100%;height:100%;border-radius:29px;background:#f1eff6;overflow:hidden;position:relative}
+.notch{position:absolute;top:8px;left:50%;width:70px;height:18px;margin-left:-35px;background:var(--haem);border-radius:12px;z-index:2}
+.bar{background:#fff;padding:36px 14px 10px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--rule)}
+.bar .file{width:22px;height:26px;border-radius:4px;background:var(--eosin);position:relative}
+.bar .file:after{content:"PDF";position:absolute;bottom:3px;left:0;right:0;text-align:center;color:#fff;font:700 6.5px/1 sans-serif}
+.bar div{font-size:11px;line-height:1.25;color:var(--haem);font-weight:700;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.bar div small{display:block;font-weight:400;color:var(--muted);font-size:9.5px}
+.mini{margin:14px;background:#fff;border-radius:6px;padding:12px;box-shadow:0 6px 20px -12px rgba(43,31,92,.4)}
+.mini .l{height:7px;border-radius:4px;background:#ece8f4;margin:6px 0}
+.mini .l.h{background:var(--haem);width:58%;height:9px;margin-bottom:10px}
+.mini .row{display:flex;justify-content:space-between;font-size:8.5px;padding:3px 0;border-bottom:1px dashed #eee}
+.mini .row b{color:var(--haem)}
+.mini .row b.hi{color:var(--eosin)}
+.save{position:absolute;left:14px;right:14px;bottom:18px;background:var(--haem);color:#fff;border-radius:12px;padding:11px;text-align:center;font-size:11.5px;font-weight:700}
+.reveal{opacity:1}
+
+/* the one orchestrated moment: the QR is scanned, then the report opens on the phone */
+@media (prefers-reduced-motion:no-preference){
+  .qr .beam{animation:scan 1.5s ease-in-out .7s 1 both}
+  .reveal{animation:open .7s cubic-bezier(.2,.8,.2,1) 2.2s both}
+  .reveal.d2{animation-delay:2.4s}.reveal.d3{animation-delay:2.6s}
+}
+@keyframes scan{0%{opacity:0;top:0}12%{opacity:1}88%{opacity:1}100%{opacity:0;top:71px}}
+@keyframes open{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* ---------- how it works (a real sequence) */
+.how{background:#fff;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:92px 0}
+.how h2{font-size:clamp(30px,3.6vw,44px);font-weight:800;max-width:18ch}
+.how p.sub{max-width:40em;color:var(--muted);margin:16px 0 0}
+.steps{list-style:none;padding:0;margin:56px 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:28px;position:relative;counter-reset:s}
+.steps:before{content:"";position:absolute;top:22px;left:22px;right:12%;height:2px;background:var(--rule)}
+.steps li{position:relative;counter-increment:s}
+.steps li:before{content:counter(s);display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--slide);border:2px solid var(--haem);
+  color:var(--haem);font:800 18px/1 "Bricolage Grotesque",sans-serif;position:relative;z-index:1}
+.steps li:last-child:before{background:var(--eosin);border-color:var(--eosin);color:#fff}
+.steps h3{font-size:20px;margin:20px 0 8px}
+.steps p{margin:0;font-size:16px;color:var(--text)}
+
+/* ---------- what's inside */
+.inside{padding:100px 0 90px;display:grid;grid-template-columns:.8fr 1.2fr;gap:64px}
+.inside h2{font-size:clamp(30px,3.6vw,44px);font-weight:800;position:sticky;top:30px}
+.inside .intro{color:var(--muted);margin-top:16px;max-width:24em}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:38px 44px}
+.feat div{border-left:3px solid var(--rule);padding-left:20px}
+.feat div:hover{border-left-color:var(--eosin)}
+.feat h3{font-size:19px;margin-bottom:6px}
+.feat p{margin:0;font-size:16px}
+
+/* ---------- privacy promise */
+.promise{background:var(--haem);color:#E9E5F7;border-radius:var(--radius-lg);padding:64px;display:grid;grid-template-columns:1fr 1.1fr;gap:56px;margin-bottom:90px;position:relative;overflow:hidden}
+.promise:after{content:"";position:absolute;right:-120px;top:-120px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(217,61,116,.35),transparent 70%)}
+.promise h2{color:#fff;font-size:clamp(28px,3.2vw,40px);font-weight:800}
+.promise p{margin:18px 0 0}
+.promise a{color:#fff}
+.promise ul{list-style:none;margin:0;padding:0;position:relative;z-index:1}
+.promise li{padding:16px 0 16px 38px;border-bottom:1px solid rgba(255,255,255,.14);position:relative}
+.promise li:last-child{border-bottom:0}
+.promise li:before{content:"";position:absolute;left:4px;top:22px;width:16px;height:9px;border-left:2.5px solid var(--eosin);border-bottom:2.5px solid var(--eosin);transform:rotate(-45deg)}
+.promise li b{color:#fff}
+
+/* ---------- footer */
+footer{border-top:1px solid var(--rule);background:#fff}
+.foot{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;padding:56px 0 40px}
+.foot h3{font-size:16px;margin-bottom:12px}
+.foot p{margin:0;font-size:15.5px}
+.foot a{text-decoration:none}
+.foot a:hover{text-decoration:underline}
+.legal{border-top:1px solid var(--rule);padding:20px 0 28px;font-size:13.5px;color:var(--muted);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+@media (max-width:960px){
+  .hero{grid-template-columns:1fr;gap:30px;padding-bottom:70px}
+  .stage{height:520px;max-width:520px}
+  .steps{grid-template-columns:1fr 1fr;gap:40px 28px}.steps:before{display:none}
+  .inside{grid-template-columns:1fr;gap:34px}.inside h2{position:static}
+  .promise{grid-template-columns:1fr;padding:44px 30px}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  body{font-size:16px}
+  .top nav a:not(:last-child){display:none}
+  .stage{height:auto;padding-bottom:20px}
+  .sheet{position:relative;width:100%;transform:rotate(-1.2deg);padding:18px}
+  .phone{position:relative;margin:-90px 0 0 auto;width:200px;height:400px}
+  .steps,.feat{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr}
+}
+
+/* ---------- policy page */
+.doc{display:grid;grid-template-columns:240px 1fr;gap:64px;padding:40px 0 100px}
+.doc aside{position:sticky;top:28px;align-self:start;font-size:15px}
+.doc aside h2{font-size:14px;color:var(--muted);font-family:"Atkinson Hyperlegible",sans-serif;font-weight:700;margin-bottom:12px}
+.doc aside ol{margin:0;padding:0 0 0 20px;color:var(--muted)}
+.doc aside li{margin:7px 0}
+.doc aside a{text-decoration:none;color:var(--text)}
+.doc aside a:hover{color:var(--eosin)}
+.pol{max-width:44em}
+.pol h1{font-size:clamp(38px,5vw,58px);font-weight:800;line-height:1.05}
+.pol .eff{color:var(--muted);margin:14px 0 30px}
+.pol .sum{background:#fff;border:1px solid var(--rule);border-left:4px solid var(--eosin);border-radius:var(--radius-sm);padding:22px 26px;margin-bottom:46px}
+.pol .sum p{margin:0}
+.pol section{scroll-margin-top:20px;padding-top:6px}
+.pol h2{font-size:25px;margin:40px 0 12px}
+.pol p,.pol li{max-width:42em}
+.pol ul{padding-left:22px}
+.pol li{margin:8px 0}
+.pol code{background:#efeaf7;color:var(--haem);padding:2px 7px;border-radius:5px;font-size:15px;word-break:break-all}
+@media (max-width:960px){.doc{grid-template-columns:1fr;gap:20px}.doc aside{position:static}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="mark" href="./" aria-label="Labsoft GD home">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="2" y="2" width="36" height="36" rx="11" fill="#2B1F5C"/><circle cx="16" cy="17" r="6.5" fill="none" stroke="#fff" stroke-width="2.6"/><circle cx="25.5" cy="24.5" r="5" fill="#D93D74"/></svg>
+      <div><b>Labsoft GD</b><span>by PathCare Solutions</span></div>
+    </a>
+    <nav aria-label="Main">
+      <a href="./#how">How it works</a>
+      <a href="./#inside">Features</a>
+      <a href="privacy.html">Privacy policy</a>
+    </nav>
+  </header>
+
+  <main class="doc">
+  <aside aria-label="On this page"><h2>On this page</h2><ol>
+    <li><a href="#who">Who we are</a></li><li><a href="#google">Google data we use</a></li><li><a href="#use">How it is used</a></li>
+    <li><a href="#store">Where it is stored</a></li><li><a href="#share">Sharing of reports</a></li><li><a href="#patients">Patient information</a></li>
+    <li><a href="#limited">Limited Use</a></li><li><a href="#delete">Disconnecting and deleting</a></li><li><a href="#changes">Changes</a></li><li><a href="#contact">Contact</a></li></ol></aside>
+  <article class="pol">
+    <h1>Privacy policy</h1>
+    <p class="eff">Effective 13 November 2026</p>
+    <div class="sum"><p><b>In short:</b> Labsoft GD saves the lab's report PDFs into the lab's own Google Drive. It can only see the files it creates there. Nothing is sent to PathCare Solutions, and no data passes through any server of ours, because we do not run one.</p></div>
+
+    <section id="who"><h2>Who we are</h2>
+    <p>Labsoft GD is pathology laboratory management software for Microsoft Windows, made by PathCare Solutions, Taramandal, Gorakhpur, Uttar Pradesh, India ("we", "us"). It is installed and runs on the laboratory's own computer. This policy explains what the software does with Google account data and with the information the laboratory enters.</p></section>
+
+    <section id="google"><h2>Google data we use</h2>
+    <p>When a laboratory chooses <b>Connect Google Drive</b>, Labsoft GD asks Google for one permission:</p>
+    <ul><li><code>https://www.googleapis.com/auth/drive.file</code>: to create files and manage only the files that Labsoft GD itself created in the user's Google Drive.</li></ul>
+    <p>With this permission Labsoft GD cannot see, open, change or delete any other file in the Drive. It does not ask for access to Gmail, contacts, calendar or any other Google service.</p>
+    <p>Labsoft GD also reads the email address of the connected Google account, through the Google Drive API, only so that the program can show which account reports are being saved to.</p></section>
+
+    <section id="use"><h2>How it is used</h2>
+    <ul>
+      <li>To create a folder named "Labsoft GD Reports" in the laboratory's Drive.</li>
+      <li>To upload each finished report as a PDF into that folder, and to replace that PDF when the laboratory corrects and saves the report again.</li>
+      <li>To turn on a view-only "anyone with the link" sharing setting for that report file, so that the QR code printed on the report can open it.</li>
+      <li>To remove that sharing setting after the number of days the laboratory chooses.</li>
+    </ul>
+    <p>Google data is used only to provide these features to the laboratory. It is not used for advertising, it is not sold, and it is not used to train any artificial intelligence or machine learning model.</p></section>
+
+    <section id="store"><h2>Where it is stored</h2>
+    <p>The Google sign-in token is stored only on the laboratory's computer, in the Windows user profile, encrypted with Windows Data Protection (DPAPI). It is never sent to PathCare Solutions.</p>
+    <p>Patient details, test results, bills and settings are kept in the Labsoft GD data file on the laboratory's computer. Report PDFs are kept in the laboratory's own Google Drive, under the laboratory's Google account and subject to <a href="https://policies.google.com/privacy" rel="noopener">Google's Privacy Policy</a>.</p>
+    <p>PathCare Solutions has no server for this software and receives no copy of the laboratory's data or reports.</p></section>
+
+    <section id="share"><h2>Sharing of reports</h2>
+    <p>A report uploaded by Labsoft GD can be opened by anyone who has its link, for example by scanning the QR code printed on that report. The link is long and random, and it is not listed or searchable anywhere. Each link opens only that one report, never the folder or any other file.</p>
+    <p>The laboratory decides whether reports are uploaded automatically and for how many days links stay active. After that time Labsoft GD removes the sharing, and the file stays private in the laboratory's Drive. The laboratory can also stop sharing or delete any report directly in Google Drive.</p></section>
+
+    <section id="patients"><h2>Patient information</h2>
+    <p>The laboratory using Labsoft GD decides what patient information is entered and which reports are shared, and is responsible for that information under the laws that apply to it. PathCare Solutions does not access, collect or process patient information. Laboratories should hand printed reports with QR codes only to the patient or the person the patient has authorised.</p></section>
+
+    <section id="limited"><h2>Limited Use</h2>
+    <p>Labsoft GD's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements.</p></section>
+
+    <section id="delete"><h2>Disconnecting and deleting</h2>
+    <ul>
+      <li>In Labsoft GD, open Settings, Google Drive, and click <b>Disconnect</b>. The sign-in is withdrawn from Google and deleted from the computer.</li>
+      <li>You can also remove Labsoft GD's access at any time from your Google Account at <a href="https://myaccount.google.com/permissions" rel="noopener">myaccount.google.com/permissions</a>.</li>
+      <li>Report files stay in your Drive until you delete them. Deleting the "Labsoft GD Reports" folder deletes all of them, and their links stop working.</li>
+      <li>Uninstalling Labsoft GD removes the program; the laboratory's data file can be deleted from the computer by the laboratory.</li>
+    </ul></section>
+
+    <section id="changes"><h2>Changes to this policy</h2>
+    <p>If we change how Labsoft GD uses Google data, we will update this page and the effective date above before the change reaches the software.</p></section>
+
+    <section id="contact"><h2>Contact</h2>
+    <p>For any question about this policy or about Labsoft GD:<br><b>PathCare Solutions</b><br>Taramandal, Gorakhpur, Uttar Pradesh, India<br>Mobile: <a href="tel:+919450595550">94505 95550</a></p></section>
+  </article>
+</main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="mark" href="./"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="2" y="2" width="36" height="36" rx="11" fill="#2B1F5C"/><circle cx="16" cy="17" r="6.5" fill="none" stroke="#fff" stroke-width="2.6"/><circle cx="25.5" cy="24.5" r="5" fill="#D93D74"/></svg><div><b>Labsoft GD</b><span>by PathCare Solutions</span></div></a>
+        <p style="margin-top:16px;color:var(--muted);max-width:26em">Pathology lab management software for Windows, with reports on Google Drive.</p>
+      </div>
+      <div><h3>Contact</h3><p>PathCare Solutions<br>Taramandal, Gorakhpur<br>Uttar Pradesh, India<br><a href="tel:+919450595550">Mob. 94505 95550</a></p></div>
+      <div><h3>Information</h3><p><a href="privacy.html">Privacy policy</a><br><a href="./#how">How it works</a><br><a href="./#inside">Features</a></p></div>
+    </div>
+    <div class="legal"><span>&copy; 2026 PathCare Solutions. All rights reserved.</span><span>Google Drive is a trademark of Google LLC.</span></div>
+  </div>
+</footer>
+</body>
+</html>
